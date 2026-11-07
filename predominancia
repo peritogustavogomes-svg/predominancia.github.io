@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Predominância por sexo</title>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#fbfaf8;--text:#1d2128;--muted:#8a919e;--line:#e4e2dd;--blue:#2b7fd6;--pink:#e0457b;--gray:#a9afba;
+box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px);color-scheme:light}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#0e1013;--text:#e9ebef;--muted:#7d8592;--line:#242931;--blue:#5aa9f2;--pink:#f06a97;--gray:#6b7380;color-scheme:dark}}
+:root[data-theme="dark"]{--bg:#0e1013;--text:#e9ebef;--muted:#7d8592;--line:#242931;--blue:#5aa9f2;--pink:#f06a97;--gray:#6b7380;color-scheme:dark}
+html,body{margin:0}
+body{background:var(--bg);color:var(--text);font:300 16px/1.5 "DM Sans",system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;padding:0 24px}
+main{max-width:520px;margin:0 auto;padding:40px 0 72px;text-align:center}
+h1{font-size:.7rem;font-weight:500;letter-spacing:.24em;text-transform:uppercase;color:var(--muted);margin:0 0 56px}
+.cond{font-size:1.5rem;letter-spacing:-.01em;min-height:1.9rem}
+.ring{width:min(300px,72vw);margin:28px auto 6px}
+svg{display:block;width:100%;height:auto}
+.arc{transition:stroke-dasharray .7s ease,stroke .4s}
+.gr{stroke:var(--gray);opacity:.45}
+.ttl{font-size:.72rem;font-weight:500;letter-spacing:.24em;text-transform:uppercase;margin-top:6px;min-height:1.1rem}
+.line{display:flex;justify-content:center;margin-top:36px}
+.line div{padding:0 22px;border-left:1px solid var(--line)}
+.line div:first-child{border-left:0}
+.line b{display:block;font-size:1.6rem;font-weight:300;font-variant-numeric:tabular-nums}
+.line span{font-size:.66rem;letter-spacing:.14em;text-transform:uppercase;color:var(--muted)}
+.verdict{max-width:44ch;margin:30px auto 0;font-size:.88rem;line-height:1.7;color:var(--muted)}
+.verdict strong{color:var(--accent,var(--text));font-weight:500}
+.inputs{display:grid;grid-template-columns:1.6fr 1fr 1fr;gap:28px;margin-top:68px;text-align:left}
+@media (max-width:480px){.inputs{grid-template-columns:1fr 1fr}.inputs div:first-child{grid-column:1/-1}}
+label{display:block;font-size:.64rem;letter-spacing:.16em;text-transform:uppercase;color:var(--muted)}
+input{width:100%;box-sizing:border-box;font:inherit;font-size:1.05rem;color:var(--text);background:transparent;border:0;border-bottom:1px solid var(--line);border-radius:0;padding:6px 0;outline:0;transition:border-color .2s;-moz-appearance:textfield}
+input::-webkit-inner-spin-button,input::-webkit-outer-spin-button{-webkit-appearance:none;margin:0}
+input:focus{border-bottom-color:var(--accent,var(--text))}
+.actions{display:flex;gap:22px;justify-content:center;flex-wrap:wrap;margin-top:40px}
+.actions button{font:inherit;font-size:.72rem;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);background:none;border:0;border-bottom:1px solid transparent;padding:2px 0;cursor:pointer}
+.actions button:hover,.actions button:focus-visible{color:var(--text);border-bottom-color:currentColor;outline:0}
+.msg{font-size:.75rem;color:var(--muted);min-height:1.1rem;margin-top:14px}
+.box{width:100%;box-sizing:border-box;margin-top:6px;font:12px/1.4 ui-monospace,Menlo,Consolas,monospace;color:var(--text);background:transparent;border:1px solid var(--line);padding:8px}
+.fine{font-size:.68rem;color:var(--muted);margin:36px auto 0;max-width:46ch;opacity:.8}
+@media print{
+  :root{--bg:#fff;--text:#000;--muted:#555;--line:#ccc;--blue:#2b7fd6;--pink:#e0457b;--gray:#a9afba}
+  .noprint{display:none}main{padding:0}
+  *{-webkit-print-color-adjust:exact;print-color-adjust:exact}
+}
+</style>
+</head>
+<body>
+<main>
+  <h1>Predominância por sexo</h1>
+  <div class="cond" id="condT"></div>
+  <div class="ring">
+    <svg viewBox="0 0 200 200" role="img" aria-label="Anel de predominância por sexo">
+      <g id="gm" fill="none" stroke-width="16" stroke-linejoin="round">
+        <circle class="gr" cx="82" cy="118" r="44"/>
+        <g id="apm" stroke-linecap="round">
+          <line x1="113" y1="87" x2="156" y2="44"/>
+          <polyline points="126,44 156,44 156,74"/>
+        </g>
+        <circle id="arcm" class="arc" cx="82" cy="118" r="44" stroke-linecap="round" stroke-dashoffset="-4" transform="rotate(-90 82 118)"/>
+      </g>
+      <g id="gf" fill="none" stroke-width="16" stroke-linejoin="round">
+        <circle class="gr" cx="100" cy="76" r="44"/>
+        <g id="apf" stroke-linecap="round">
+          <line x1="100" y1="120" x2="100" y2="174"/>
+          <line x1="74" y1="150" x2="126" y2="150"/>
+        </g>
+        <circle id="arcf" class="arc" cx="100" cy="76" r="44" stroke-linecap="round" stroke-dashoffset="-4" transform="rotate(-90 100 76)"/>
+      </g>
+    </svg>
+  </div>
+  <div class="ttl" id="ttl"></div>
+  <div class="line">
+    <div><b id="sM">–</b><span>♂ Masculino</span></div>
+    <div><b id="sF">–</b><span>♀ Feminino</span></div>
+    <div><b id="sR">–</b><span>Razão M:F</span></div>
+  </div>
+  <p class="verdict" id="verdict"></p>
+
+  <div class="inputs noprint">
+    <div><label for="cond">Condição</label><input id="cond" type="text" value="Condição exemplo" autocomplete="off"></div>
+    <div><label for="m">Casos ♂</label><input id="m" type="number" inputmode="numeric" pattern="[0-9]*" enterkeyhint="done" min="0" value="120"></div>
+    <div><label for="f">Casos ♀</label><input id="f" type="number" inputmode="numeric" pattern="[0-9]*" enterkeyhint="done" min="0" value="80"></div>
+  </div>
+  <div class="actions noprint">
+    <button id="cpt" type="button">Copiar texto</button>
+    <button id="cps" type="button">Copiar SVG</button>
+    <button id="clr" type="button">Limpar</button>
+  </div>
+  <div class="msg noprint" id="msg" role="status"></div>
+  <textarea id="box" class="box noprint" hidden readonly rows="4" aria-label="Texto para copiar"></textarea>
+  <p class="fine noprint">Predominância pelas contagens brutas. Valor de p: teste binomial exato bicaudal contra 50/50. IC de 95%: Wilson. Nenhum substitui análise estatística formal.</p>
+</main>
+<script>
+(function(){
+  var R = {m: 44, f: 44};
+  var $ = function(id){ return document.getElementById(id); };
+  var root = document.documentElement;
+  function erf(x){
+    var s = x < 0 ? -1 : 1; x = Math.abs(x);
+    var t = 1 / (1 + 0.3275911 * x);
+    var y = 1 - (((((1.061405429 * t - 1.453152027) * t) + 1.421413741) * t - 0.284496736) * t + 0.254829592) * t * Math.exp(-x * x);
+    return s * y;
+  }
+  function pct(v){ return (v * 100).toFixed(1).replace('.', ',') + '%'; }
+  function wilson(k, n){
+    var z = 1.96, ph = k / n, d = 1 + z * z / n;
+    var c = (ph + z * z / (2 * n)) / d, h = z * Math.sqrt(ph * (1 - ph) / n + z * z / (4 * n * n)) / d;
+    return [Math.max(0, c - h), Math.min(1, c + h)];
+  }
+  function binomP(k, n){
+    if (n > 20000) return 1 - erf(Math.abs((k - n / 2) / Math.sqrt(n / 4)) / Math.SQRT2);
+    var lf = [0], s = 0, i, j;
+    for (i = 1; i <= n; i++) lf[i] = lf[i - 1] + Math.log(i);
+    for (j = k; j <= n; j++) s += Math.exp(lf[n] - lf[j] - lf[n - j] - n * Math.LN2);
+    return Math.min(1, 2 * s);
+  }
+  function update(){
+    var m = Math.max(0, parseInt($('m').value, 10) || 0);
+    var f = Math.max(0, parseInt($('f').value, 10) || 0);
+    var n = m + f;
+    var cond = $('cond').value.trim();
+    var kind = m > f ? 'm' : (f > m ? 'f' : 'eq');
+    var main = kind === 'm' ? 'var(--blue)' : kind === 'f' ? 'var(--pink)' : 'var(--gray)';
+    root.style.setProperty('--accent', main);
+    var share = n === 0 ? 0 : Math.max(m, f) / n;
+    var tie = kind === 'eq';
+    ['m','f'].forEach(function(k){
+      var g = $('g' + k), arc = $('arc' + k), C = 2 * Math.PI * R[k];
+      g.style.display = (n > 0 && (tie || kind === k)) ? '' : 'none';
+      g.setAttribute('transform', tie ? (k === 'm' ? 'translate(0 50) scale(.5)' : 'translate(100 50) scale(.5)') : '');
+      var s = (!tie && kind === k) ? share : 0, full = s >= 1;
+      arc.setAttribute('stroke', main);
+      var ap = $('ap' + k);
+      ap.setAttribute('stroke', main);
+      ap.style.opacity = tie ? 0.5 : 1;
+      arc.style.visibility = s > 0 ? 'visible' : 'hidden';
+      arc.setAttribute('stroke-linecap', full ? 'butt' : 'round');
+      arc.setAttribute('stroke-dashoffset', full ? 0 : -4);
+      arc.setAttribute('stroke-dasharray', (full ? C : Math.max(0, s * C - 8)) + ' ' + C);
+    });
+    $('sM').textContent = n ? pct(m / n) : '–';
+    $('sF').textContent = n ? pct(f / n) : '–';
+    $('sR').textContent = n && f ? (m / f).toFixed(2).replace('.', ',') + ' : 1' : '–';
+    $('condT').textContent = cond;
+    $('ttl').textContent = kind === 'm' ? 'Predomínio masculino' : kind === 'f' ? 'Predomínio feminino' : (n ? 'Sem predomínio' : 'Sem dados');
+    $('ttl').style.color = main;
+    var c = (cond || 'esta condição').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;'), txt = '';
+    if (n === 0) {
+      txt = 'Insira o número de casos para calcular.';
+    } else if (tie) {
+      txt = 'Em relação a ' + c + ', os casos estão igualmente divididos (' + m + ' de cada sexo).';
+    } else {
+      var who = kind === 'm' ? 'o sexo masculino' : 'o sexo feminino';
+      var k = Math.max(m, f), ci = wilson(k, n), p = binomP(k, n);
+      txt = 'Em relação a ' + c + ', <strong>' + who + '</strong> concentra ' + pct(share) + ' dos casos (' + k + ' de ' + n + '). IC de 95%: ' + pct(ci[0]) + ' a ' + pct(ci[1]) + '.';
+      txt += ' Valor de p (teste binomial exato): ' + (p < 0.001 ? '< 0,001' : p.toFixed(3).replace('.', ',')) + '.';
+    }
+    $('verdict').innerHTML = txt;
+  }
+  function svgText(){
+    var src = document.querySelector('.ring svg'), clone = src.cloneNode(true);
+    var a = src.querySelectorAll('*'), b = clone.querySelectorAll('*'), kill = [];
+    for (var i = 0; i < a.length; i++){
+      var hid = false;
+      for (var e = a[i]; e && e !== src; e = e.parentNode) if (e.style && e.style.display === 'none') hid = true;
+      var cs = getComputedStyle(a[i]), t = b[i];
+      if (hid || cs.visibility === 'hidden') { kill.push(t); continue; }
+      t.removeAttribute('class');
+      if (cs.stroke && cs.stroke !== 'none') t.setAttribute('stroke', cs.stroke);
+      if (cs.opacity !== '1') t.setAttribute('opacity', cs.opacity);
+    }
+    kill.forEach(function(n){ n.remove(); });
+    clone.setAttribute('width', '400');
+    clone.setAttribute('height', '400');
+    return new XMLSerializer().serializeToString(clone);
+  }
+  function copyOut(txt, label){
+    var box = $('box'), msg = $('msg');
+    function show(ok){
+      msg.textContent = ok ? label + ' copiado.' : 'Cópia automática bloqueada. Copie o texto abaixo (Ctrl+C).';
+      box.hidden = ok;
+      if (!ok) { box.value = txt; box.focus(); box.select(); }
+    }
+    function fb(){
+      var ok = false;
+      box.hidden = false; box.value = txt; box.select();
+      try { ok = document.execCommand('copy'); } catch (e) {}
+      show(ok);
+    }
+    if (navigator.clipboard && navigator.clipboard.writeText) navigator.clipboard.writeText(txt).then(function(){ show(true); }, fb);
+    else fb();
+  }
+  $('cpt').addEventListener('click', function(){ copyOut($('verdict').textContent, 'Texto'); });
+  $('cps').addEventListener('click', function(){ copyOut(svgText(), 'SVG'); });
+  $('clr').addEventListener('click', function(){
+    $('cond').value = ''; $('m').value = ''; $('f').value = '';
+    update(); $('m').focus();
+  });
+  ['cond','m','f'].forEach(function(id){ $(id).addEventListener('input', update); });
+  // Preenche os campos a partir da URL: ?c=Condição&m=120&f=80
+  (function(){
+    try {
+      var q = new URLSearchParams(location.search);
+      var c = q.get('c'), m = q.get('m'), f = q.get('f');
+      if (c !== null) $('cond').value = c.slice(0, 200);
+      if (m !== null) $('m').value = Math.max(0, parseInt(m, 10) || 0);
+      if (f !== null) $('f').value = Math.max(0, parseInt(f, 10) || 0);
+    } catch (e) {}
+  })();
+  update();
+})();
+</script>
+</body>
+</html>
